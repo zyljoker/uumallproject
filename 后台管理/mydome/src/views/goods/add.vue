@@ -252,7 +252,7 @@ export default {
       getCateList: "cate/getCateListAction",
       //商品列表
       getGoodsList: "goods/getGoodsAction",
-      getGoodsCount: "goods/getCountAction"
+      getGoodsCount: "goods/getGoodsCount"
     }),
 
      //表单弹框一打开，就加载富文本编辑器

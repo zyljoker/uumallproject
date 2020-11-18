@@ -85,7 +85,17 @@ const router = new Router({
 //   }
 //   next('/login')
 // })
-
+router.beforeEach((to,form,next)=>{
+  if(to.path=='/login'){
+    next()
+    return
+  }
+  if(sessionStorage.getItem('userInfo')){
+    next()
+    return
+  }
+  next('/login')
+})
 // 导出路由
 export default router
 

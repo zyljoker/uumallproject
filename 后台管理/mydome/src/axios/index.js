@@ -253,7 +253,7 @@ export function getSeckAdd(data){
 
 //限时秒杀列表** 
 export function getSeckList(params){
-  return http.get('/seckadd',{
+  return http.get('/secklist',{
     params
   })
 }

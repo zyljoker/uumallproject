@@ -23,7 +23,7 @@
               <i class="el-icon-s-grid"></i>
               <span slot="title">首页</span>
             </el-menu-item>
-            <el-submenu :index="item.id.toString()" v-for="item in menuList" :key='item.id'>
+            <el-submenu :index="item.id.toString()" v-for="item in getUserInfo.menus" :key='item.id'>
               <template slot="title">
                 <i :class="item.icon"></i>
                 <span>{{item.title}}</span>
@@ -44,22 +44,25 @@ export default {
           defaultActive:'/home'
         };
     },
+   
     mounted() {
-      //组件一加载就会触发挂载
-      //console.log(this.$route,'路由源信息')
+      //组件一加载就会出发挂载
+      console.log(this.$route,'路由原信息');
       this.defaultActive = this.$route.path
-      //组件加载触发action
-      this.getMenuList()
     },
+    
+    
     computed: {
-      ...mapGetters({
-        menuList:'menu/getMenuList'
-      })
+      // ...mapGetters({
+      //   menuList:'menu/getMenuList'
+      // })
+    // 利用登录之后的用户信息
+    ...mapGetters(['getUserInfo'])
     },
     methods: {
-      ...mapActions({
-        getMenuList:'menu/getMenuListAction'
-      })
+      // ...mapActions({
+      //   getMenuList:'menu/getMenuListAction'
+      // })
     },
 };
 </script>

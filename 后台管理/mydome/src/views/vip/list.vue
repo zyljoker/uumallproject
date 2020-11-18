@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      memberList: "member/getMemberList"
+      memberList: "vip/getMemberList"
     })
   },
   mounted() {
@@ -47,7 +47,7 @@ export default {
   methods: {
     //获取行动
     ...mapActions({
-      getMemberAction: "member/getMemberListAction"
+      getMemberAction: "vip/getMemberActions"
     }),
     //封装一个编辑传id事件
     edit(id) {

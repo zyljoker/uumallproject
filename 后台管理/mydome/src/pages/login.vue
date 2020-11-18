@@ -26,6 +26,7 @@
 
 <script>
 import {getUserLogin } from '../axios'
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
@@ -48,6 +49,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['changeUserInfoAction']),
     //登录
     login(formname) {
       this.$refs[formname].validate(valid => {
@@ -60,7 +62,9 @@ export default {
             if(res.data.code==200){
               this.$message.success(res.data.msg)
               //登录成功之后，把登录数据存储到本地存储中
-              sessionStorage.setItem('userInfo',JSON.stringify(res.data.list))
+              // sessionStorage.setItem('userInfo',JSON.stringify(res.data.list))
+               //登录之后触发修改state的UserInfo的action
+              this.changeUserInfoAction(res.data.list)
               //跳转
               this.$router.push('/home')
             }else{
@@ -83,17 +87,17 @@ export default {
 .login 
   width: 100vw;
   height: 100vh;
-  background: $onecolor;
+  background: #0B1013;
 
   .logfrom 
     position: absolute;
     left: 50%;
     top: 50%;
-    margin: -150px 0 0 -150px;
+    margin: -150px 0px 0 -150px;
     width: 400px;
     height: 220px;
-    padding: 35px 10px;
-    background: $fourcolor;
-  
-
+    padding: 40px 60px 20px 10px;
+    background: #434343;
+    text-align center
+    border-radius 20px
 </style>

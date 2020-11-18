@@ -40,7 +40,7 @@ export default {
   },
   mounted() {
     //组件一加载触发行动
-    this.getSeckListAction()
+    // this.getSeckListAction()
   },
   methods: {
     //获取行动

@@ -14,7 +14,7 @@ http.interceptors.request.use(req => {
   let userInfo = sessionStorage.getItem("userInfo")
     ? JSON.parse(sessionStorage.getItem("userInfo"))
     : {};
-  console.log(sessionStorage.getItem("userInfo"), "登录信息");
+  // console.log(sessionStorage.getItem("userInfo"), "登录信息");
   //我们的需求是在请求头加内容
   //后端要求的令牌名字叫 authorization
   req.headers.authorization = userInfo.token;
